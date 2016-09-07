@@ -23,3 +23,4 @@ github_username: cgduncan7
 
 # Build settings
 markdown: kramdown
+theme: minima
