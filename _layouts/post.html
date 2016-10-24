@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<div class="post">
+	<div class="post-header">
+		<h1>{{ page.title | escape }}</h1>
+		<p>{{ site.time | date_to_long_string }}</p>
+	</div>
+	<div class="post-body">
+		{{ content }}
+	</div>
+</div>
