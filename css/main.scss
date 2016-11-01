@@ -20,7 +20,7 @@ $brand-color:      #35dd70;
 
 $grey-color:       #bcbcbc;
 $grey-color-light: lighten($grey-color, 25%);
-$grey-color-dark:  darken($grey-color, 25%);
+$grey-color-dark:  darken($grey-color, 40%);
 
 // Width of the content area
 $content-width:    1200px;
@@ -28,13 +28,18 @@ $on-palm:          600px;
 $on-laptop:        800px;
 
 @mixin materialize($color) {
-	color: #fff;
+	$c: lighten($color, 30%);
+	color: $c;
 	text-shadow:
-		0 2px 0 mix($color, #fff, 10%),
-		0 4px 0 mix($color, #fff, 30%),
-		0 6px 0 mix($color, #fff, 50%),
-		0 8px 0 mix($color, #fff, 70%),
-		0 10px 0 mix($color, #fff, 90%),
+		0 1px 0 mix($color, $c, 10%),
+		0 2px 0 mix($color, $c, 20%),
+		0 3px 0 mix($color, $c, 30%),
+		0 4px 0 mix($color, $c, 40%),
+		0 5px 0 mix($color, $c, 50%),
+		0 6px 0 mix($color, $c, 60%),
+		0 7px 0 mix($color, $c, 70%),
+		0 8px 0 mix($color, $c, 80%),
+		0 9px 0 mix($color, $c, 90%),
 		2px 3px 15px $grey-color-dark
 }
 
@@ -57,6 +62,20 @@ $on-laptop:        800px;
 
 .page-body {
 	padding: 2em;
+}
+
+// _layouts/post.html
+
+$post-body-color: darken($brand-color, 20%);
+
+.post-body {
+	margin: auto;
+	max-width: $content-width * .75;
+	border-left: 5px solid $post-body-color;
+	border-right: 5px solid $post-body-color;
+	border-top: 1px solid $post-body-color;
+	border-bottom: 1px solid $post-body-color;
+	padding: 1em;
 }
 
 // _includes/header.html

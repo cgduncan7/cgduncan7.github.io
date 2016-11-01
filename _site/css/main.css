@@ -11,6 +11,15 @@
 .page-body {
   padding: 2em; }
 
+.post-body {
+  margin: auto;
+  max-width: 900px;
+  border-left: 5px solid #199344;
+  border-right: 5px solid #199344;
+  border-top: 1px solid #199344;
+  border-bottom: 1px solid #199344;
+  padding: 1em; }
+
 .header {
   background-color: #35dd70;
   width: 100%;
@@ -18,8 +27,8 @@
   position: relative; }
 
 .header-title {
-  color: #fff;
-  text-shadow: 0 2px 0 #ebfcf1, 0 4px 0 #c2f5d4, 0 6px 0 #9aeeb8, 0 8px 0 #72e79b, 0 10px 0 #49e07e, 2px 3px 15px #7c7c7c;
+  color: #b8f3cd;
+  text-shadow: 0 1px 0 #abf1c4, 0 2px 0 #9eefba, 0 3px 0 #91ecb1, 0 4px 0 #84eaa8, 0 5px 0 #77e89f, 0 6px 0 #69e695, 0 7px 0 #5ce48c, 0 8px 0 #4fe183, 0 9px 0 #42df79, 2px 3px 15px #565656;
   margin-left: 1em;
   position: absolute;
   top: 50%;
