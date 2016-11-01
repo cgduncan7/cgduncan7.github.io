@@ -9,7 +9,13 @@
 
   	{% include header.html %}
 
-  	{{ content }}
+  	
+    <div class="page-body">
+      <h1 class="page-heading">{{ page.title | upcase }}</h1>
 
+    	{{ content }}
+    </div>
+
+    {% include footer.html %}
   </body>
 </html>
