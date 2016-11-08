@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Collin Duncan
-email: cgdunca7@gmail.com
+email: cgduncan7@gmail.com
 description: >
   A website with website things.
 baseurl: "" # the subpath of your site, e.g. /blog

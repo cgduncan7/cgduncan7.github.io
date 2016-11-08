@@ -3,7 +3,7 @@
   font-family: "Raleway", sans-serif; }
 
 .page {
-  background-color: #fdfdfd;
+  background-color: #ede7d9;
   width: 100%;
   min-height: 600px;
   margin: 0; }
@@ -14,22 +14,27 @@
 .post-body {
   margin: auto;
   max-width: 900px;
-  border-left: 5px solid #199344;
-  border-right: 5px solid #199344;
-  border-top: 1px solid #199344;
-  border-bottom: 1px solid #199344;
+  border-left: 5px solid #597788;
+  border-right: 5px solid #597788;
+  border-top: 1px solid #597788;
+  border-bottom: 1px solid #597788;
   padding: 1em; }
 
+.code {
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  white-space: pre; }
+
 .header {
-  background-color: #35dd70;
+  background-color: #90a9b7;
   width: 100%;
   height: 100px;
   position: relative;
-  box-shadow: 0px 2px 5px #565656; }
+  box-shadow: 0px 1px 2px #161616; }
 
 .header-title {
-  color: #b8f3cd;
-  text-shadow: 0 1px 0 #abf1c4, 0 2px 0 #9eefba, 0 3px 0 #91ecb1, 0 4px 0 #84eaa8, 0 5px 0 #77e89f, 0 6px 0 #69e695, 0 7px 0 #5ce48c, 0 8px 0 #4fe183, 0 9px 0 #42df79, 2px 3px 10px #565656;
+  color: #d5a021;
+  text-shadow: 0 1px 0 #c8961f, 0 2px 0 #bb8c1d, 0 3px 0 #ad821b, 0 4px 0 #a07819, 0 5px 0 #936e17, 0 6px 0 #866414, 0 7px 0 #795a12, 0 8px 0 #6b5010, 0 9px 0 #5e460e, 3px 4px 15px black;
   margin-left: 1em;
   position: absolute;
   top: 50%;
@@ -44,13 +49,13 @@
 
 .link {
   display: inline-block;
-  background-color: #bcbcbc;
+  background-color: #ede7d9;
   width: 75px;
   margin: .25em;
   padding: .65em;
   text-align: center;
   text-decoration: none;
-  box-shadow: 2px 3px 10px #565656; }
+  box-shadow: 2px 3px 10px #161616; }
 
 .link div {
   display: inline-block;
@@ -60,14 +65,14 @@
   color: #000; }
 
 .link-current {
-  background-color: #fdfdfd;
+  background-color: #d5a021;
   border: 1px solid black;
-  box-shadow: 4px 6px 20px #565656; }
+  box-shadow: 4px 6px 20px #161616; }
 
 .footer {
   position: absolute;
   bottom: 0%;
-  background-color: #a2efbd;
+  background-color: #d5a021;
   height: 50px;
   width: 100%; }
 

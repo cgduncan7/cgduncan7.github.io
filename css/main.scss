@@ -5,18 +5,16 @@
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:300i,400,600');
 
-// Our variables
+// Fonts
 $base-font-family: "Raleway", sans-serif;
-$base-font-size:   16px;
-$base-font-weight: 400;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
 
-$spacing-unit:     30px;
-
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #35dd70;
+// Colors
+$color-dark:		#272727;
+$color-mid:			#7c7c7c;
+$color-light:		#ede7d9;
+$color-primary:		#90a9b7;
+$color-secondary:	#d5a021;
+$color-accent:		#d2d8b3;
 
 $grey-color:       #bcbcbc;
 $grey-color-light: lighten($grey-color, 25%);
@@ -27,20 +25,19 @@ $content-width:    1200px;
 $on-palm:          600px;
 $on-laptop:        800px;
 
-@mixin materialize($color) {
-	$c: lighten($color, 30%);
-	color: $c;
+@mixin materialize($start-color, $end-color) {
+	color: $end-color;
 	text-shadow:
-		0 1px 0 mix($color, $c, 10%),
-		0 2px 0 mix($color, $c, 20%),
-		0 3px 0 mix($color, $c, 30%),
-		0 4px 0 mix($color, $c, 40%),
-		0 5px 0 mix($color, $c, 50%),
-		0 6px 0 mix($color, $c, 60%),
-		0 7px 0 mix($color, $c, 70%),
-		0 8px 0 mix($color, $c, 80%),
-		0 9px 0 mix($color, $c, 90%),
-		2px 3px 10px $grey-color-dark
+		0 1px 0 mix($end-color, $start-color, 90%),
+		0 2px 0 mix($end-color, $start-color, 80%),
+		0 3px 0 mix($end-color, $start-color, 70%),
+		0 4px 0 mix($end-color, $start-color, 60%),
+		0 5px 0 mix($end-color, $start-color, 50%),
+		0 6px 0 mix($end-color, $start-color, 40%),
+		0 7px 0 mix($end-color, $start-color, 30%),
+		0 8px 0 mix($end-color, $start-color, 20%),
+		0 9px 0 mix($end-color, $start-color, 10%),
+		3px 4px 15px darken($color-dark, 40%);
 }
 
 * {
@@ -50,7 +47,7 @@ $on-laptop:        800px;
 // _layouts/default.html
 
 .page {
-	background-color: $background-color;
+	background-color: $color-light;
 	width: 100%;
 	min-height: 600px;
 	margin: 0;
@@ -66,7 +63,7 @@ $on-laptop:        800px;
 
 // _layouts/post.html
 
-$post-body-color: darken($brand-color, 20%);
+$post-body-color: darken($color-primary, 20%);
 
 .post-body {
 	margin: auto;
@@ -78,20 +75,24 @@ $post-body-color: darken($brand-color, 20%);
 	padding: 1em;
 }
 
+.code {
+	font-family: "Courier New", monospace;
+	font-size: 14px;
+	white-space: pre;
+}
+
 // _includes/header.html
 
-$header-color:		$brand-color;
-
 .header {
-	background-color: $header-color;
+	background-color: $color-primary;
 	width: 100%;
 	height: 100px;
 	position: relative;
-	box-shadow: 0px 2px 5px $grey-color-dark;
+	box-shadow: 0px 1px 2px darken($color-mid, 40%);
 }
 
 .header-title {
-	@include materialize($header-color);
+	@include materialize(darken($color-secondary,30%), $color-secondary);
 	margin-left: 1em;
 	position: absolute;
 	top: 50%;
@@ -108,13 +109,13 @@ $header-color:		$brand-color;
 
 .link {
 	display:inline-block;
-	background-color: $grey-color;
+	background-color: $color-light;
 	width: 75px;
 	margin:.25em;
 	padding:.65em;
 	text-align: center;
 	text-decoration: none;
-	box-shadow: 2px 3px 10px $grey-color-dark;
+	box-shadow: 2px 3px 10px darken($color-mid, 40%);
 }
 
 .link div {
@@ -126,9 +127,9 @@ $header-color:		$brand-color;
 }
 
 .link-current {
-	background-color: $background-color;
+	background-color: $color-secondary;
 	border: 1px solid black;
-	box-shadow: 4px 6px 20px $grey-color-dark;
+	box-shadow: 4px 6px 20px darken($color-mid, 40%);
 }
 
 // _includes/footer.html
@@ -136,7 +137,7 @@ $header-color:		$brand-color;
 .footer {
 	position: absolute;
 	bottom:0%;
-	background-color: lighten($brand-color, 25%);
+	background-color: $color-secondary;
 	height:50px;
 	width: 100%;
 }
