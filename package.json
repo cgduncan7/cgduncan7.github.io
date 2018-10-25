@@ -1,0 +1,25 @@
+{
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "description": "website built with vanillaJS, vanillaCSS, and uses gulp as build system",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-csso": "^3.0.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^3.0.1",
+    "pump": "^3.0.0",
+    "run-sequence": "^2.2.1",
+    "minimatch": "3.0.4",
+    "lodash": ">=4.17.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Collin Duncan @cgduncan7",
+  "license": "ISC"
+}

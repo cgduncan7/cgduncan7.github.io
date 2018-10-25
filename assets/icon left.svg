@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="800px" viewBox="0 0 400 800" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>icon left</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icon-left" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon">
+            <g id="C">
+                <polygon id="C-Outer" fill="#FFFFFF" points="0 400 400 0 400 800"></polygon>
+                <polygon id="C-Inner" fill="#000000" points="372.142857 143 115 400.142857 372.142857 657.285714"></polygon>
+            </g>
+            <polygon id="Split" fill="#000000" points="400 0 371.428571 28.5714286 371.428571 771.428571 400 800 428.571429 771.428571 428.571429 28.5714286"></polygon>
+        </g>
+    </g>
+</svg>
