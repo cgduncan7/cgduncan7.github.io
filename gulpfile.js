@@ -5,6 +5,7 @@ const uglifyES = require("uglify-es");
 const composer = require("gulp-uglify/composer");
 const htmlmin = require("gulp-htmlmin");
 const rename = require("gulp-rename");
+const size = require("gulp-size");
 const del = require("del");
 const pump = require("pump");
 const uglify = composer(uglifyES, console);
@@ -49,9 +50,48 @@ gulp.task("html", function(cb) {
   ], cb);
 });
 
+gulp.task("size-assets", function(cb) {
+  const s = size({ title: "assets" });
+  pump([
+    gulp.src("assets/*"),
+    s,
+  ], cb);
+});
+
+gulp.task("size-html", function(cb) {
+  const s = size({ title: "html" });
+  pump([
+    gulp.src("index.html"),
+    s,
+  ], cb);
+});
+
+gulp.task("size-js", function(cb) {
+  const s = size({ title: "js" });
+  pump([
+    gulp.src("index.js"),
+    s
+  ], cb);
+});
+
+gulp.task("size-css", function(cb) {
+  const s = size({ title: "css" });
+  pump([
+    gulp.src("style.css"),
+    s,
+  ], cb);
+});
+
+gulp.task("size", gulp.parallel(["size-assets", "size-html", "size-js", "size-css"]));
+
 gulp.task("clean", function(cb) {
   del(["style.css", "index.js", "index.html"]);
   cb();
 });
 
-gulp.task("default", gulp.series(["clean"], gulp.parallel(["css", "js", "html"])));
+gulp.task("default",
+  gulp.series(
+    ["clean"],
+    gulp.parallel(["css", "js", "html"])
+  )
+);
