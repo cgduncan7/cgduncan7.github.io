@@ -92,6 +92,7 @@ gulp.task("clean", function(cb) {
 gulp.task("default",
   gulp.series(
     ["clean"],
-    gulp.parallel(["css", "js", "html"])
+    gulp.parallel(["css", "js", "html"]),
+    "size"
   )
 );
