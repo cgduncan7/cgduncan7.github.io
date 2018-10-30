@@ -1,133 +1,166 @@
+// #region utils
+/**
+ * returns a promise that resolves after ms milliseconds
+ * @param {number} ms 
+ */
+function delay(ms) {
+  return new Promise((res) => {
+    setTimeout(res, ms);
+  });
+}
+
+/**
+ * constrains v between n and x
+ * @param {number} v value to constrain
+ * @param {number} n minimum value
+ * @param {number} x maximum value
+ */
+function constrain(v, n, x) {
+  return (v < n ? n : (v > x ? x : v));
+}
+
+/**
+ * maps value from range [vmin, vmax] to range [mmin, mmax)
+ * @param {number} value value to map
+ * @param {number} vmin minimum number value can be
+ * @param {number} vmax maximum number value can be
+ * @param {number} mmin minimum number mapped value can be (inclusive)
+ * @param {number} mmax maximum number mapped value can be (exclusive)
+ */
+function map(value, vmin, vmax, mmin, mmax) {
+  const v = constrain(value, vmin, vmax);
+  const r = (v - vmin) * vmax;
+  const d = (mmax - mmin) * r;
+  return Math.floor(mmin + d);
+}
+
+/**
+ * returns a random character
+ */
+function randomCharacter() {
+  return String.fromCharCode(map(Math.random(), 0, 1, 33, 127));
+}
+
+/**
+ * returns a copy of array which has had its contents shuffled
+ * @param {array} array array to shuffle
+ */
+function shuffleArray(array) {
+  const arrayCopy = array.slice();
+  const shuffled = [];
+  for (let i = 0; i < array.length; i += 1) {
+    const r = Math.floor(Math.random() * arrayCopy.length);
+    const i = arrayCopy[r];
+    shuffled.push(i);
+    arrayCopy.splice(r, 1);
+  }
+  return shuffled;
+}
+
+/**
+ * scrambles text by creating an array of steps to take which:
+ * 1- replaces all beginning characters with random characters
+ * 2- removes/adds characters to match endText length
+ * 3- replaces random characters with characters from end text
+ * 4- returns a promise that resolves once endText has been achieved
+ * @param {DOMNode} element element with text to shuffle
+ * @param {string} endText what element's innerText should end up being
+ */
+function scramblifyText(element, endText) {
+  return new Promise(function(res) {
+    const steps = [];
+    let startTextArray = [];
+    for (let i = 0; i < element.innerText.length; i += 1) {
+      startTextArray.push(element.innerText.charAt(i));
+    }
+    steps.push(startTextArray.slice());
+    let indices = [];
+    for (let i = 0; i < startTextArray.length; i += 1) { indices.push(i); }
+    let shuffledIndices = shuffleArray(indices);
+
+    for (let i = 0; i < shuffledIndices.length; i += 1) {
+      startTextArray[shuffledIndices[i]] = randomCharacter();
+      steps.push(startTextArray.slice());
+    }
+
+    if (startTextArray.length > endText.length) {
+      while (startTextArray.length > endText.length) {
+        const r = map(Math.random(), 0, 1, 0, startTextArray.length);
+        startTextArray.splice(r, 1);
+      }
+    } else if (startTextArray.length < endText.length) {
+      while (startTextArray.length < endText.length) {
+        const r = map(Math.random(), 0, 1, 0, startTextArray.length);
+        const b = startTextArray.slice(0, r);
+        const e = startTextArray.slice(r);
+        b.push("");
+        startTextArray = b.concat(e);
+      }
+    }
+
+    indices = [];
+    for (let i = 0; i < endText.length; i += 1) { indices.push(i); }
+    shuffledIndices = shuffleArray(indices);
+    for (let i = 0; i < shuffledIndices.length; i += 1) {
+      startTextArray[shuffledIndices[i]] = endText.charAt(shuffledIndices[i]);
+      steps.push(startTextArray.slice());
+    }
+      
+    const interval = setInterval(
+      function() {
+        if (steps.length === 0) {
+          clearInterval(interval);
+          res();
+        } else {
+          const step = steps.shift();
+          element.innerText = step.join("");
+        }
+      },
+      50
+    );
+  });
+}
+
+/**
+ * returns <div class={className}>{ innerHTML }</div>
+ * @param {string} className class of div
+ * @param {string} innerHTML innerHTML of div to create
+ */
+function createDiv(className, innerHTML) {
+  const div = document.createElement("div");
+  div.className = className;
+  div.innerHTML = innerHTML;
+  return div;
+}
+
+/**
+ * returns <p class={className}>{ innerHTML }</p>
+ * @param {string} className class of p
+ * @param {string} innerHTML innerHTML of paragraph
+ */
+function createParagraph(className, innerHTML) {
+  const p = document.createElement("p");
+  p.className = className;
+  p.innerHTML = innerHTML;
+  return p;
+}
+
+/**
+ * returns <img class={className} src={src} />
+ * @param {string} className class of p
+ * @param {string} innerHTML innerHTML of paragraph
+ */
+function createImage(className, src) {
+  const img = document.createElement("img");
+  img.className = className;
+  img.src = src;
+  return img;
+}
+// #endregion
+
 (function() {
   var state = 0;
   var rotateDeg;
-
-  /**
-   * returns a promise that resolves after ms milliseconds
-   * @param {number} ms 
-   */
-  function delay(ms) {
-    return new Promise((res) => {
-      setTimeout(res, ms);
-    });
-  }
-
-  /**
-   * constrains v between n and x
-   * @param {number} v value to constrain
-   * @param {number} n minimum value
-   * @param {number} x maximum value
-   */
-  function constrain(v, n, x) {
-    return (v < n ? n : (v > x ? x : v));
-  }
-
-  /**
-   * maps value from range [vmin, vmax] to range [mmin, mmax)
-   * @param {number} value value to map
-   * @param {number} vmin minimum number value can be
-   * @param {number} vmax maximum number value can be
-   * @param {number} mmin minimum number mapped value can be (inclusive)
-   * @param {number} mmax maximum number mapped value can be (exclusive)
-   */
-  function map(value, vmin, vmax, mmin, mmax) {
-    const v = constrain(value, vmin, vmax);
-    const r = (v - vmin) * vmax;
-    const d = (mmax - mmin) * r;
-    return Math.floor(mmin + d);
-  }
-
-  function randomCharacter() {
-    return String.fromCharCode(map(Math.random(), 0, 1, 33, 127));
-  }
-
-  function shuffleArray(array) {
-    const arrayCopy = array.slice();
-    const shuffled = [];
-    for (let i = 0; i < array.length; i += 1) {
-      const r = Math.floor(Math.random() * arrayCopy.length);
-      const i = arrayCopy[r];
-      shuffled.push(i);
-      arrayCopy.splice(r, 1);
-    }
-    return shuffled;
-  }
-
-  function scramblifyText(element, endText) {
-    return new Promise(function(res) {
-      const steps = [];
-      let startTextArray = [];
-      for (let i = 0; i < element.innerText.length; i += 1) {
-        startTextArray.push(element.innerText.charAt(i));
-      }
-      steps.push(startTextArray.slice());
-      let indices = [];
-      for (let i = 0; i < startTextArray.length; i += 1) { indices.push(i); }
-      let shuffledIndices = shuffleArray(indices);
-
-      for (let i = 0; i < shuffledIndices.length; i += 1) {
-        startTextArray[shuffledIndices[i]] = randomCharacter();
-        steps.push(startTextArray.slice());
-      }
-
-      if (startTextArray.length > endText.length) {
-        while (startTextArray.length > endText.length) {
-          const r = map(Math.random(), 0, 1, 0, startTextArray.length);
-          startTextArray.splice(r, 1);
-        }
-      } else if (startTextArray.length < endText.length) {
-        while (startTextArray.length < endText.length) {
-          const r = map(Math.random(), 0, 1, 0, startTextArray.length);
-          const b = startTextArray.slice(0, r);
-          const e = startTextArray.slice(r);
-          b.push("");
-          startTextArray = b.concat(e);
-        }
-      }
-
-      indices = [];
-      for (let i = 0; i < endText.length; i += 1) { indices.push(i); }
-      shuffledIndices = shuffleArray(indices);
-      for (let i = 0; i < shuffledIndices.length; i += 1) {
-        startTextArray[shuffledIndices[i]] = endText.charAt(shuffledIndices[i]);
-        steps.push(startTextArray.slice());
-      }
-      
-      const interval = setInterval(
-        function() {
-          if (steps.length === 0) {
-            clearInterval(interval);
-            res();
-          } else {
-            const step = steps.shift();
-            element.innerText = step.join("");
-          }
-        },
-        50
-      );
-    });
-  }
-
-  function createDiv(className, innerHTML) {
-    const div = document.createElement("div");
-    div.className = className;
-    div.innerHTML = innerHTML;
-    return div;
-  }
-
-  function createParagraph(className, innerHTML) {
-    const p = document.createElement("p");
-    p.className = className;
-    p.innerHTML = innerHTML;
-    return p;
-  }
-
-  function createImage(className, src) {
-    const img = document.createElement("img");
-    img.className = className;
-    img.src = src;
-    return img;
-  }
 
   function getAboutContents() {
     const title = document.getElementById("content-title");
