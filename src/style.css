@@ -15,7 +15,6 @@ body {
   overflow: hidden;
 }
 
-
 /* #region overlay */
 @keyframes rotate45-openC {
   0% {
@@ -458,6 +457,7 @@ body {
 #content-header > h1 {
   color: white;
   text-align: center;
+  text-transform: uppercase;
 }
 
 #home-link {

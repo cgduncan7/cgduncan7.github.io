@@ -168,8 +168,8 @@ function createImage(className, src) {
 
     const body = document.createElement("div");
     body.id = "content-about";
-    body.append(createParagraph("about","My name is Collin."));
-    body.append(createImage("about", "assets/icon.svg"));
+    body.append(createParagraph("about", "My name is Collin."));
+    body.append(createImage("about", "https://render.bitstrips.com/v2/cpanel/042c5481-28ec-4d85-8f58-1e8f2376bfc6-6ee700c0-dbce-4c12-96ea-427fe7f14c96-v1.png?transparent=1&palette=1"));
     body.append(createParagraph("about","I'm a human."));
     body.append(createParagraph("about","Most days my favorite color is <span class='green'>green</span>."));
     body.append(createDiv("about-changer", "<p class='about'>I like <span id='about-likes'>technology</span>!</p>"));
@@ -216,7 +216,7 @@ function createImage(className, src) {
     body.innerHTML += "I like technology.<br/><br/>";
     body.innerHTML += "Most days my favorite color is <span class='green'>green</span>.<br/><br/>";
 
-    return [ body ];
+    return [ body, [] ];
   }
 
   function getContactContents() {
@@ -224,13 +224,15 @@ function createImage(className, src) {
     title.textContent = "Contact";
 
     const body = document.createElement("div");
-    body.id = "content-about";
-    body.innerHTML = "My name is Collin.<br/><br/>";
-    body.innerHTML += "I'm a human.<br/><br/>";
-    body.innerHTML += "I like technology.<br/><br/>";
-    body.innerHTML += "Most days my favorite color is <span class='green'>green</span>.<br/><br/>";
+    body.id = "content-contact";
+    body.append(
+      createDiv(
+        "contact",
+        "Email: <a href='mailto:cgduncan7@gmail.com'>cgduncan7@gmail.com</a>"
+      )
+    );
 
-    return [ body ];
+    return [ body, [] ];
   }
 
   function setContents([body, functions]) {
