@@ -587,3 +587,30 @@ div.about-changer, p.about {
   }
 }
 /* #endregion */
+
+/* #region contact */
+#content-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 599px) {
+  p.contact {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 949px) {
+  p.contact {
+    font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  p.contact {
+    font-size: 32px;
+  }
+}
+/* #endregion */
