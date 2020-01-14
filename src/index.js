@@ -172,7 +172,7 @@ function createImage(className, src) {
     body.append(createImage("about", "https://render.bitstrips.com/v2/cpanel/042c5481-28ec-4d85-8f58-1e8f2376bfc6-6ee700c0-dbce-4c12-96ea-427fe7f14c96-v1.png?transparent=1&palette=1"));
     body.append(createParagraph("about","I'm a human."));
     body.append(createParagraph("about","Most days my favorite color is <span class='green'>green</span>."));
-    body.append(createDiv("about-changer", "<p class='about'>I like <span id='about-likes'>technology</span>!</p>"));
+    body.append(createDiv("about-changer", createParagraph("about", "I like <span id='about-likes'>technology</span>!").outerHTML));
 
     const functions = [];
     functions.push(async function() {
@@ -211,7 +211,7 @@ function createImage(className, src) {
 
     const body = document.createElement("div");
     body.id = "content-projects";
-    let featuredProjectInnerHTML = "";
+    let featuredProjectInnerHTML = "<h2>Featured Projects</h2>";
     const featuredProject = createDiv("projects-featured", featuredProjectInnerHTML);
     body.append(featuredProject);
 
