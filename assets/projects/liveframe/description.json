@@ -1,0 +1,8 @@
+{
+  "name": "Liveframe",
+  "logo": "./logo.png",
+  "shortDescription": "A virtual window frame to peer through my window from anywhere in the world.",
+  "longDescription": "I am originally from the US but have moved to the Netherlands a few years ago. I wanted to make something nice for my family and also allow them to stay more connected to me. Social media and sending pictures is nice but I wanted something that grandparents and parents could enjoy without much use. As a result, liveframe was born. Simply put, this is a small touchscreen display powered by a Raspberry Pi that launches a Chromium browser in kiosk mode to display a Vue.js web application (this is the liveframe). This web app is hosted on another Raspberry Pi in my house which is constantly taking pictures using a PiCam mounted on my window. The reason I chose a web app for this was ease-of-updating for me. I used a daily cronjob to restart the liveframes and ensure the latest website is loaded. I have plenty of more features planned and will continue updating the website with more things for my family to enjoy.",
+  "tech": [ "rpi", "linux", "vue", "nginx", "nodejs" ],
+  "createdAt": "2019-12-23T14:00:00"
+}
