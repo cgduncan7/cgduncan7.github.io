@@ -210,11 +210,10 @@ function createImage(className, src) {
     title.textContent = "Projects";
 
     const body = document.createElement("div");
-    body.id = "content-about";
-    body.innerHTML = "My name is Collin.<br/><br/>";
-    body.innerHTML += "I'm a human.<br/><br/>";
-    body.innerHTML += "I like technology.<br/><br/>";
-    body.innerHTML += "Most days my favorite color is <span class='green'>green</span>.<br/><br/>";
+    body.id = "content-projects";
+    let featuredProjectInnerHTML = "";
+    const featuredProject = createDiv("projects-featured", featuredProjectInnerHTML);
+    body.append(featuredProject);
 
     return [ body, [] ];
   }
@@ -226,9 +225,21 @@ function createImage(className, src) {
     const body = document.createElement("div");
     body.id = "content-contact";
     body.append(
-      createDiv(
+      createParagraph(
         "contact",
-        "Email: <a href='mailto:cgduncan7@gmail.com'>cgduncan7@gmail.com</a>"
+        "email: <a href='mailto:cgduncan7@gmail.com'>cgduncan7@gmail.com</a>"
+      )
+    );
+    body.append(
+      createParagraph(
+        "contact",
+        "github: <a href='https://github.com/cgduncan7'>@cgduncan7</a>"
+      )
+    );
+    body.append(
+      createParagraph(
+        "contact",
+        "location: Netherlands"
       )
     );
 
