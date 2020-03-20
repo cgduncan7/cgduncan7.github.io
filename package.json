@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "website built with vanillaJS, vanillaCSS, and uses gulp as build system",
   "main": "index.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "del": "^3.0.0",
     "eslint": "^5.7.0",
