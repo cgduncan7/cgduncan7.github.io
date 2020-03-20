@@ -21,6 +21,7 @@
     "lodash": "^4.17.15",
     "lodash.template": ">=4.5.0",
     "minimatch": "3.0.4",
+    "minimist": ">=1.2.2",
     "pump": "^3.0.0",
     "uglify-es": "^3.3.9"
   },
