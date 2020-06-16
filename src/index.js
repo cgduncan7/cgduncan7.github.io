@@ -156,6 +156,20 @@ function createImage(className, src) {
   img.src = src;
   return img;
 }
+
+/**
+ * returns <a class={className} href={href}>{ innerHTML }</a>
+ * @param {string} className class of a
+ * @param {string} href href for a
+ * @param {string} innerHTML innerHTML of a
+ */
+function createAnchor(className, href, innerHTML) {
+  const anchor = document.createElement("a");
+  anchor.className = className;
+  anchor.href = href;
+  anchor.innerHTML = innerHTML;
+  return anchor;
+}
 // #endregion
 
 (function() {
@@ -211,9 +225,18 @@ function createImage(className, src) {
 
     const body = document.createElement("div");
     body.id = "content-projects";
-    let featuredProjectInnerHTML = "<h2>Featured Projects</h2>";
-    const featuredProject = createDiv("projects-featured", featuredProjectInnerHTML);
-    body.append(featuredProject);
+
+    let innerHTML = "";
+    innerHTML += createDiv("project-logo", createImage("project-logo", "assets/projects/liveframe/logo.png").outerHTML).outerHTML;
+    innerHTML += createDiv("project-details",
+      createDiv("project-title", "<h1>Liveframe</h1>").outerHTML +
+      createDiv(
+        "project-description",
+        createParagraph("project-description-short", "A virtual window frame to share my the sight from my window.").outerHTML
+      ).outerHTML
+    ).outerHTML;
+    const project = createAnchor("project", "https://www.collinduncan.com/liveframe/", innerHTML);
+    body.append(project);
 
     return [ body, [] ];
   }
