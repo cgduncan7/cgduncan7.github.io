@@ -10,23 +10,11 @@ const del = require("del");
 const pump = require("pump");
 const uglify = composer(uglifyES, console);
 
-const AUTOPREFIXER_BROWSERS = [
-  "ie >= 10",
-  "ie_mob >= 10",
-  "ff >= 30",
-  "chrome >= 34",
-  "safari >= 7",
-  "opera >= 23",
-  "ios >= 7",
-  "android >= 4.4",
-  "bb >= 10"
-];
-
 gulp.task("css", function(cb) {
   pump([
     gulp.src("src/style.css"),
     rename("style.css"),
-    autoprefixer({browsers: AUTOPREFIXER_BROWSERS}),
+    autoprefixer(),
     csso(),
     gulp.dest("./")
   ], cb);
@@ -53,7 +41,7 @@ gulp.task("html", function(cb) {
 gulp.task("size-assets", function(cb) {
   const s = size({ title: "assets" });
   pump([
-    gulp.src("assets/*"),
+    gulp.src("assets/**/*"),
     s,
   ], cb);
 });

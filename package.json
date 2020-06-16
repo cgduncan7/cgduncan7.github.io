@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "website built with vanillaJS, vanillaCSS, and uses gulp as build system",
   "main": "index.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "del": "^3.0.0",
     "eslint": "^5.7.0",
@@ -26,6 +25,7 @@
   },
   "scripts": {
     "build": "gulp",
+    "size": "gulp size | awk '/(html|js|css|assets) all files/ {print $2,$5,$6}'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Collin Duncan @cgduncan7",
