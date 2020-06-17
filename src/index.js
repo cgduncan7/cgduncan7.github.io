@@ -220,23 +220,41 @@ function createAnchor(className, href, innerHTML) {
   }
 
   function getProjectsContents() {
+    const projects = [
+      {
+        name: "Liveframe",
+        description: "A virtual window frame to share the view through my window.",
+        logo: "assets/projects/liveframe/logo.png",
+        link: "https://www.collinduncan.com/liveframe/"
+      },
+      {
+        name: "Personal Website (this)",
+        description: "An attempt to make a super vanilla, BMVP (bare-minimum) personal website that is (somewhat) maintainable.",
+        logo: "assets/icon.png",
+        link: "https://github.com/cgduncan7/cgduncan7.github.io"
+      }
+    ];
+
     const title = document.getElementById("content-title");
     title.textContent = "Projects";
 
     const body = document.createElement("div");
     body.id = "content-projects";
 
-    let innerHTML = "";
-    innerHTML += createDiv("project-logo", createImage("project-logo", "assets/projects/liveframe/logo.png").outerHTML).outerHTML;
-    innerHTML += createDiv("project-details",
-      createDiv("project-title", "<h1>Liveframe</h1>").outerHTML +
-      createDiv(
-        "project-description",
-        createParagraph("project-description-short", "A virtual window frame to share the view through my window.").outerHTML
-      ).outerHTML
-    ).outerHTML;
-    const project = createAnchor("project", "https://www.collinduncan.com/liveframe/", innerHTML);
-    body.append(project);
+    for (const p of projects) {
+      const { name, description, link, logo } = p;
+      let innerHTML = "";
+      innerHTML += createDiv("project-logo", createImage("project-logo", logo).outerHTML).outerHTML;
+      innerHTML += createDiv("project-details",
+        createDiv("project-title", `<h1>${name}</h1>`).outerHTML +
+        createDiv(
+          "project-description",
+          createParagraph("project-description-short", description).outerHTML
+        ).outerHTML
+      ).outerHTML;
+      const project = createAnchor("project", link, innerHTML);
+      body.append(project);
+    }
 
     return [ body, [] ];
   }
