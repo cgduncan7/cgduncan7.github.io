@@ -232,7 +232,7 @@ function createAnchor(className, href, innerHTML) {
       createDiv("project-title", "<h1>Liveframe</h1>").outerHTML +
       createDiv(
         "project-description",
-        createParagraph("project-description-short", "A virtual window frame to share my the sight from my window.").outerHTML
+        createParagraph("project-description-short", "A virtual window frame to share the view through my window.").outerHTML
       ).outerHTML
     ).outerHTML;
     const project = createAnchor("project", "https://www.collinduncan.com/liveframe/", innerHTML);
