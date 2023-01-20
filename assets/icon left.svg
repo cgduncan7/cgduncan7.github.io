@@ -8,7 +8,7 @@
                 <polygon id="C-Outer" fill="#FFFFFF" points="0 400 400 0 400 800"></polygon>
                 <polygon id="C-Inner" fill="#000000" points="372.142857 143 115 400.142857 372.142857 657.285714"></polygon>
             </g>
-            <polygon id="Split" fill="#000000" points="400 0 371.428571 28.5714286 371.428571 771.428571 400 800 428.571429 771.428571 428.571429 28.5714286"></polygon>
+            <polygon id="Split" fill="#000000" points="400 -1 371 -1 371 801 400 801"></polygon>
         </g>
     </g>
 </svg>

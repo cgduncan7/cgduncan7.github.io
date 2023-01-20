@@ -4,15 +4,16 @@
     <defs></defs>
     <g id="icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Icon">
-            <g id="D" transform="translate(400.000000, 0.000000)">
-                <polygon id="D-Outer" fill="#FFFFFF" transform="translate(200.000000, 400.000000) rotate(180.000000) translate(-200.000000, -400.000000) " points="0 400 400 0 400 800"></polygon>
+            <g id="D" transform="translate(400, 0)">
+                <polygon id="D-Outer" fill="#FFFFFF" transform="translate(200, 400) rotate(180) translate(-200, -400) " points="0 400 400 0 400 800"></polygon>
                 <polygon id="D-Inner" fill="#000000" points="85.7142857 200 285.714286 400 85.7142857 600"></polygon>
             </g>
+            <polygon id="Split" fill="#000000" points="0 -1 0 801 29 801 29 -1"></polygon>
             <g id="C">
                 <polygon id="C-Outer" fill="#FFFFFF" points="0 400 400 0 400 800"></polygon>
                 <polygon id="C-Inner" fill="#000000" points="372.142857 143 115 400.142857 372.142857 657.285714"></polygon>
             </g>
-            <polygon id="Split" fill="#000000" points="400 0 371.428571 28.5714286 371.428571 771.428571 400 800 428.571429 771.428571 428.571429 28.5714286"></polygon>
+            <polygon id="Split" fill="#000000" points="371 0 371 800 429 800 429 0"></polygon>
         </g>
     </g>
 </svg>

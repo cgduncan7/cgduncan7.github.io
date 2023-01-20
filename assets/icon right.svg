@@ -3,12 +3,12 @@
     <title>icon right</title>
     <defs></defs>
     <g id="icon-right" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Icon" transform="translate(-29.000000, 0.000000)">
-            <g id="D" transform="translate(29.000000, 0.000000)">
-                <polygon id="D-Outer" fill="#FFFFFF" transform="translate(200.000000, 400.000000) rotate(180.000000) translate(-200.000000, -400.000000) " points="0 400 400 0 400 800"></polygon>
+        <g id="Icon">
+            <g id="D">
+                <polygon id="D-Outer" fill="#FFFFFF" transform="translate(200, 400) rotate(180) translate(-200, -400) " points="0 400 400 0 400 800"></polygon>
                 <polygon id="D-Inner" fill="#000000" points="85.7142857 200 285.714286 400 85.7142857 600"></polygon>
             </g>
-            <polygon id="Split" fill="#000000" points="29 0 0.428571429 28.5714286 0.428571429 771.428571 29 800 57.5714286 771.428571 57.5714286 28.5714286"></polygon>
+            <polygon id="Split" fill="#000000" points="0 -1 0 801 29 801 29 -1"></polygon>
         </g>
     </g>
 </svg>
