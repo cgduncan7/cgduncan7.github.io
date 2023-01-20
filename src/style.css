@@ -607,13 +607,14 @@ div.about-changer, p.about {
 }
 
 div.project-logo {
-  height: 100%;
-  width: auto;
+  height: 128px;
+  width: 128px;
+  flex-shrink: 0;
 }
 
 img.project-logo {
-  height: 80%;
-  width: auto;
+  height: 100%;
+  width: 100%;
 }
 
 .project-details {

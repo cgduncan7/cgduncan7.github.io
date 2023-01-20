@@ -222,16 +222,16 @@ function createAnchor(className, href, innerHTML) {
   function getProjectsContents() {
     const projects = [
       {
-        name: "Liveframe",
-        description: "A virtual window frame to share the view through my window.",
-        logo: "assets/projects/liveframe/logo.png",
-        link: "https://www.collinduncan.com/liveframe/"
-      },
-      {
         name: "Personal Website (this)",
         description: "An attempt to make a super vanilla, BMVP (bare-minimum) personal website that is (somewhat) maintainable.",
         logo: "assets/icon.png",
         link: "https://github.com/cgduncan7/cgduncan7.github.io"
+      },
+      {
+        name: "Liveframe",
+        description: "A virtual window frame to share the view through my window.",
+        logo: "assets/projects/liveframe/logo.png",
+        link: "https://www.collinduncan.com/liveframe/"
       }
     ];
 
