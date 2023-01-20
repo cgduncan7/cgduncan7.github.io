@@ -268,7 +268,7 @@ function createAnchor(className, href, innerHTML) {
     body.append(
       createParagraph(
         "contact",
-        "email: <a href='mailto:cgduncan7@gmail.com'>cgduncan7@gmail.com</a>"
+        "email: <a href='mailto:github@collinduncan.com'>github@collinduncan.com</a>"
       )
     );
     body.append(
